@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.set_page_config(page_title="Parametros", layout="wide")
+st.set_page_config(page_title="Carbonato Recomendador", layout="wide")
 
 @st.cache_data
 def f0(s):
@@ -35,8 +35,8 @@ def reorder(a, r):
         i = int(i)
         ax = (i/10)+a
         freq = 0
-        if a>=250 :
-            fmax.append(np.Inf)
+        if a==250:
+            fmax.append(30)
         elif ax>250:
             while ax>250:
                 ax = ((1-r)*ax)+(r*a)
@@ -52,12 +52,12 @@ def reorder(a, r):
         i = int(i)
         ax = (i/10)+a
         freq = 0
-        if a>=140:
-            fmin.append(np.Inf)
-        elif ax>140:
-            while ax>140:
-               ax = ((1-r)*ax)+(r*a)
-               freq += 1 
+        if a>=130 :
+            fmin.append(30)
+        elif ax>130:
+            while ax>130:
+                ax = ((1-r)*ax)+(r*a)
+                freq += 1
             fmin.append(freq)
         else:
             fmin.append(0)
@@ -72,9 +72,4 @@ def reorder(a, r):
     return(resp)
 
 
-
 st.write(reorder(alcalinidad, recambio))
-
-
-
-
