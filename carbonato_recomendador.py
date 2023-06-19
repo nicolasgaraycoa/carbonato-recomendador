@@ -27,30 +27,50 @@ st.subheader("Aplicación de carbonato")
 @st.cache_data
 def reorder(a, r):
     r = r/100
-    dif_x = 150-a
-    dif_y = 250-a
-    ap_x = min(abs(dif_x)*10,100)
-    ap_y = min(dif_y*10, 200)
+    dosis = range(50,200,25)
+
+    fmax = []
+
+    for i in dosis:
+        i = int(i)
+        ax = (i/10)+a
+        freq = 0
+        if a>=250 :
+            fmax.append(np.Inf)
+        elif ax>250:
+            while ax>250:
+                ax = ((1-r)*ax)+(r*a)
+                freq += 1
+            fmax.append(freq)
+        else:
+            fmax.append(0)
+
     
-    ax = (ap_x/10)+a
-    freq_x = 1
-    while ax > 110:
-        ax = ((1-r)*ax)+(r*a)
-        freq_x += 1
+    fmin = []
     
-    ay = (ap_y/10)+a
-    freq_y = 1
-    while ay > 110:
-        ay = ((1-r)*ay)+(r*a)
-        freq_y += 1
+    for i in dosis:
+        i = int(i)
+        ax = (i/10)+a
+        freq = 0
+        if a>=140:
+            fmin.append(np.Inf)
+        elif ax>140:
+            while ax>140:
+               ax = ((1-r)*ax)+(r*a)
+               freq += 1 
+            fmin.append(freq)
+        else:
+            fmin.append(0)
+
 
     resp = pd.DataFrame({
-        'rango':['min','max'],
-        'dosis/ha': [ap_x, ap_y],
-        'frecuencia': [freq_x, freq_y]
+        'dosis/ha': dosis,
+        'frecuencia_baja': fmin,
+        'frecuencia_alta': fmax
     })
 
     return(resp)
+
 
 
 st.write(reorder(alcalinidad, recambio))
