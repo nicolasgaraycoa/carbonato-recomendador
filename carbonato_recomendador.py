@@ -27,7 +27,7 @@ st.subheader("Aplicación de carbonato")
 @st.cache_data
 def reorder(a, r):
     r = r/100
-    dosis = range(50,200,25)
+    dosis = range(50,200,50)
 
     fmax = []
 
