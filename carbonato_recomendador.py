@@ -35,10 +35,10 @@ def reorder(a, r):
         i = int(i)
         ax = (i/10)+a
         freq = 0
-        if a==250:
+        if a>=180:
             fmax.append(30)
-        elif ax>250:
-            while ax>250:
+        elif ax>180:
+            while ax>180:
                 ax = ((1-r)*ax)+(r*a)
                 freq += 1
             fmax.append(freq)
