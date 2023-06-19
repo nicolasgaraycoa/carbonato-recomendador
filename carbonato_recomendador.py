@@ -72,4 +72,6 @@ def reorder(a, r):
     return(resp)
 
 
-st.write(reorder(alcalinidad, recambio))
+st.dataframe(reorder(alcalinidad, recambio), hide_index=True)
+st.text('0 = aplicacion todos los dias')
+
