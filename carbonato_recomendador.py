@@ -7,7 +7,7 @@ st.set_page_config(page_title="Carbonato Recomendador", layout="wide")
 @st.cache_data
 def f0(s):
     t = (s*59.88)+278.79
-    t = t*1.02*0.000001*50045
+    t = t*1.022*0.000001*50045
     t = int(t)
     return(t)
 
