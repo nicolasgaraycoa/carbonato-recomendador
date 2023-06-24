@@ -90,9 +90,8 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.text('Dosis correctiva')
-    st.dataframe(correctivo)
+    st.dataframe(correctivo, hide_index=True)
 
 with col2:
     st.text('Dosis mantenimiento')
-    st.dataframe(mantenimiento)
-
+    st.dataframe(mantenimiento, hide_index=True)
