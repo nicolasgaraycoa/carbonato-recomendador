@@ -71,7 +71,7 @@ def app_mant(a,r,s):
     if a>=a_obj:
         mantenimiento = pd.DataFrame({
             'kg/ha': dosis*10,
-            'frecuencia': 15
+            'cada x dias': 15
         }, index =[0])
     else:
         a_rpt = a_obj-(dosis*(1-r))
@@ -82,7 +82,7 @@ def app_mant(a,r,s):
             fy += 1
         mantenimiento = pd.DataFrame({
             'kg/ha' : dosis*10,
-            'frecuencia': fy
+            'cada x dias': fy
         }, index=[0])
     return(mantenimiento)
 
