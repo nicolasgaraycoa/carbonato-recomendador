@@ -16,7 +16,7 @@ salinidad = st.sidebar.number_input('Salinidad: ', min_value = 0,
                                     max_value= 40, value = 20)
 
 recambio = st.sidebar.number_input('% Recambio diario: ', min_value = 0, 
-                                    max_value= 15, value=10)
+                                    max_value= 18, value=10)
 
 alcalinidad = st.sidebar.number_input('Alcalinidad: ', min_value = 0, 
                                     max_value= 250, value= f0(salinidad))
