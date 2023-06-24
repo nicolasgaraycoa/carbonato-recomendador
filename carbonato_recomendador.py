@@ -29,7 +29,9 @@ def app_corr(a,r,s):
     r = r/100
 
     dosis = [float(x)*0.1 for x in range(100,250,50)]
-    a_obj = f0(s)*1.6
+    a_s = f0(s)
+    a_obj = a_s*1.6
+    
 
 
     if a>=a_obj:
@@ -46,7 +48,7 @@ def app_corr(a,r,s):
             ax = a
             fx=0
             while ax<a_rpt:
-                ax = ((ax+i)*(1-r))+(a*r)
+                ax = ((ax+i)*(1-r))+(a_s*r)
                 fx +=1
             lfx.append(fx)
         correctivo = pd.DataFrame({
@@ -62,7 +64,8 @@ def app_mant(a,r,s):
     r = r/100
 
     dosis = 100*0.1
-    a_obj = f0(s)*1.6
+    a_s = f0(s)
+    a_obj = a_s*1.6
 
 
     if a>=a_obj:
@@ -75,7 +78,7 @@ def app_mant(a,r,s):
         ay = a_rpt+dosis
         fy = 0
         while ay> a_rpt:
-            ay = (ay*(1-r))+(a*r)
+            ay = (ay*(1-r))+(a_s*r)
             fy += 1
         mantenimiento = pd.DataFrame({
             'kg/ha' : dosis*10,
@@ -95,3 +98,4 @@ with col1:
 with col2:
     st.text('Dosis mantenimiento')
     st.dataframe(mantenimiento, hide_index=True)
+
