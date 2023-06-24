@@ -37,7 +37,7 @@ def app_corr(a,r,s):
     if a>=a_obj:
         correctivo = pd.DataFrame({
             'kg/ha': 0,
-            'frecuencia': np.NaN
+            'dias consec.': np.NaN
         }, index=[0])
     else:
         kgx = []
@@ -53,7 +53,7 @@ def app_corr(a,r,s):
             lfx.append(fx)
         correctivo = pd.DataFrame({
             'kg/ha': kgx,
-            'frecuencia': lfx
+            'dias consec.': lfx
         }, index=range(0,len(dosis)))
     return(correctivo)
 
