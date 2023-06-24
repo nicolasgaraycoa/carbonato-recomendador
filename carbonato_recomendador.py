@@ -41,7 +41,7 @@ def app_corr(a,r,s):
         kgx = []
         lfx = []
         for i in dosis:
-            a_rpt = a_obj-(i*(1-r))
+            a_rpt = a_obj-(10*(1-r))
             kgx.append(i*10)
             ax = a
             fx=0
