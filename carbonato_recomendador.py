@@ -28,7 +28,7 @@ st.subheader("Aplicación de carbonato")
 def app_corr(a,r,s):
     r = r/100
 
-    dosis = [float(x)*0.1 for x in range(100,200,25)]
+    dosis = [float(x)*0.1 for x in range(100,250,50)]
     a_obj = f0(s)*1.6
 
 
